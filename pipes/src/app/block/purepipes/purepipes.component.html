@@ -1,0 +1,28 @@
+
+<div fxFlex="70%" fxLayoutAlign="center start" fxLayout="column" >
+  <br><br>
+
+  <!-- ------NAMES-------->
+
+  <p>{{name | lowercase}}</p>
+  <p>{{name | uppercase}}</p>
+  <p>{{name | titlecase}}</p>
+
+<br><p>----------------------------------------------------------------------------------------</p><br>
+
+  <!-- ------DATES-------->
+
+  <p>{{today | date:'short'}}</p>
+  <p>{{today | date:'medium'}}</p>
+  <p>{{today | date:'long'}}</p>
+  <p>{{today | date:'shortDate'}}</p>
+  <p>{{today | date:'longDate'}}</p>
+  <p>{{today | date:'shortTime'}}</p>
+  <p>{{today | date:'longTime'}}</p>
+
+  <br><p>----------------------------------------------------------------------------------------</p><br>
+  <label for="search-term">Search</label>
+  <input placeholder="Enter term" (input)="updateSearch($event)" id="search-term">
+  <div *ngFor="let result of results" [innerHTML]="result.summary | highlight : searchTerm"></div>
+
+</div>
